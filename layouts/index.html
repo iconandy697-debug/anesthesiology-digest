@@ -1,7 +1,41 @@
-{{ define "main" }}
-<h2>最新麻醉学前沿文摘</h2>
-<p>欢迎访问本站。当前正在持续更新围术期医学、区域麻醉与药代动力学最新进展。</p>
-<ul>
-    <li><a href="/posts/eleveld-propofol-2026/">Eleveld 丙泊酚模型应用解析</a></li>
-</ul>
-{{ end }}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <style>
+        :root { --primary: #0f4c81; --bg: #f8f9fa; --card-bg: #ffffff; --text: #2c3e50; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 40px auto; }
+        header { background: var(--primary); color: white; padding: 30px 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        header h1 { margin: 0 0 10px 0; font-size: 2rem; }
+        header p { margin: 0; opacity: 0.9; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card h2 { margin-top: 0; color: var(--primary); }
+        .tag { display: inline-block; background: #e9ecef; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; color: #495057; margin-right: 5px; }
+        a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🩺 {{ .Site.Title }}</h1>
+            <p>聚焦区域麻醉、PK/PD 药代动力学模型、围术期危重病医学最新文献深度解析。</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2><a href="/posts/eleveld-propofol-2026/">基于 Eleveld 模型的丙泊酚靶控输注（TCI）在无痛胃肠镜中的应用</a></h2>
+                <div>
+                    <span class="tag">药代动力学</span>
+                    <span class="tag">静脉麻醉</span>
+                    <span class="tag">Eleveld模型</span>
+                </div>
+                <p>探讨 50%-30%-20% 三阶段给药策略在降低无痛胃肠镜检查中呼吸抑制与低血压发生率的临床效能及效应室浓度（Ce）精准调控机制...</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
