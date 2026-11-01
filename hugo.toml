@@ -1,7 +1,7 @@
 baseURL = "https://73c92ff8.anesthesiology-digest.pages.dev/"
 languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
-#theme = "papermod"
+theme = "papermod"
 
 [params]
   env = "production"
