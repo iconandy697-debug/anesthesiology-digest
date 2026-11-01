@@ -1,7 +1,7 @@
 baseURL = "https://你的自定义域名/"
 languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
-theme = "papermod"
+#theme = "papermod"
 
 [params]
   env = "production"
