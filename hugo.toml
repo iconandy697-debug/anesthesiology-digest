@@ -2,5 +2,4 @@ baseURL = "https://anesthesiology-digest.pages.dev/"
 languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
 [frontmatter]
-  date = [":git", "lastmod", ":default", ":filename"]
-
+  date = ["lastmod", "publishDate", "date", ":fileModTime"]
