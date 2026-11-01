@@ -67,11 +67,11 @@
         <main>
             <div class="section-title">最新前沿文摘</div>
             
-            {{ range .Site.RegularPages }}
+            {{ range .Site.RegularPages.ByDate.Reverse }}
             <div class="card">
                 <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                 <div class="meta">
-                    发布日期：{{ .Date.Format "2006-01-02" }}
+                    发布日期：{{ .Date.Format "2006-01-02 15:04" }}
                 </div>
                 <div style="margin-bottom: 12px;">
                     {{ range .Params.tags }}
