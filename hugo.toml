@@ -3,31 +3,3 @@ languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
 
 
-[params]
-  env = "production"
-  title = "麻醉学前沿文摘"
-  description = "聚焦区域麻醉、PK/PD 药代动力学模型、围术期危重病医学最新文献深度解析。"
-  showReadingTime = true
-  showShareButtons = true
-  showCodeCopyButtons = true
-  
-  [params.homeInfoParams]
-    Title = "🩺 麻醉学前沿文摘库"
-    Content = "追踪 BJA、Anesthesiology、A&A 等顶级期刊，提供精准麻醉与围术期医学前沿解读。"
-
-[menu]
-  [[menu.main]]
-    identifier = "archives"
-    name = "全部文摘"
-    url = "/archives/"
-    weight = 10
-  [[menu.main]]
-    identifier = "tags"
-    name = "专业标签"
-    url = "/tags/"
-    weight = 20
-  [[menu.main]]
-    identifier = "search"
-    name = "🔍 搜索"
-    url = "/search/"
-    weight = 30
