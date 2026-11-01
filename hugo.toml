@@ -1,7 +1,7 @@
 baseURL = "https://anesthesiology-digest.pages.dev/"
 languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
-theme = ["github.com/adityatelange/hugo-PaperMod"]
+
 
 [params]
   env = "production"
