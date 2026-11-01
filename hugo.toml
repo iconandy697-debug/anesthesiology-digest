@@ -2,5 +2,7 @@ baseURL = "https://anesthesiology-digest.pages.dev/"
 languageCode = "zh-CN"
 title = "麻醉学前沿文摘"
 
+
+
 [params]
   description = "追踪国际顶级期刊，精选麻醉与围术期医学最新进展"
