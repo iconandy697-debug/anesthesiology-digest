@@ -67,7 +67,7 @@
         <main>
             <div class="section-title">最新前沿文摘</div>
             
-            {{ range .Site.RegularPages.ByDate.Reverse }}
+            {{ range .Site.RegularPages.ByPublishDate.Reverse }}
             <div class="card">
                 <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                <div class="meta">
