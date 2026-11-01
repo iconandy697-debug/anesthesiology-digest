@@ -70,9 +70,13 @@
             {{ range .Site.RegularPages.ByDate.Reverse }}
             <div class="card">
                 <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                <div class="meta">
-                    发布日期：{{ .Date.Format "2006-01-02 15:04" }}
-                </div>
+               <div class="meta">
+    {{ if .Date.IsZero }}
+        发布日期：近期更新
+    {{ else }}
+        发布日期：{{ .Date.Format "2006-01-02 15:04" }}
+    {{ end }}
+</div>
                 <div style="margin-bottom: 12px;">
                     {{ range .Params.tags }}
                     <span class="tag"># {{ . }}</span>
