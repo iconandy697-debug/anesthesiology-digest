@@ -1,6 +1,5 @@
 ---
 title: "【文献速递】Eleveld 丙泊酚模型在老龄患者靶控输注中的效能评估"
-date: 2026-11-02T10:00:00+08:00
 draft: false
 categories: ["药代动力学"]
 tags: ["Propofol", "PK/PD", "Eleveld"]
