@@ -2,19 +2,31 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>{{ .Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
-        h1 { color: #0066cc; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .post { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        :root { --primary: #0f4c81; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --border: #e2e8f0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.8; }
+        .site-header { background: #ffffff; border-bottom: 1px solid var(--border); padding: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.25rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 70vh; }
+        footer { text-align: center; padding: 40px 0; color: #64748b; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; }
     </style>
 </head>
 <body>
-    <h1>🩺 {{ .Site.Title }}</h1>
-    <p>{{ .Site.Params.description }}</p>
-    <hr>
-    <div class="post">
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">🩺 {{ .Site.Title }}</a>
+        </div>
+    </header>
+
+    <div class="main-container">
         {{ block "main" . }}{{ end }}
     </div>
+
+    <footer>
+        <p>© 2026 麻醉学前沿文摘 · 纯网页端自动化生成</p>
+    </footer>
 </body>
 </html>
