@@ -1,93 +1,25 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <style>
-        :root { 
-            --primary: #0f4c81; 
-            --bg: #f4f7f9; 
-            --card-bg: #ffffff; 
-            --text: #2c3e50; 
-        }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-            background: var(--bg); 
-            color: var(--text); 
-            margin: 0; 
-            padding: 20px; 
-            line-height: 1.7; 
-        }
-        .container { max-width: 860px; margin: 30px auto; }
-        header { 
-            background: linear-gradient(135deg, #0f4c81 0%, #1b6ca8 100%); 
-            color: white; 
-            padding: 35px 30px; 
-            border-radius: 12px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 4px 15px rgba(15,76,129,0.15); 
-        }
-        header h1 { margin: 0 0 10px 0; font-size: 2.2rem; font-weight: 700; }
-        header p { margin: 0; opacity: 0.9; font-size: 1.05rem; }
-        .section-title { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
-        .card { 
-            background: var(--card-bg); 
-            padding: 25px; 
-            border-radius: 10px; 
-            margin-bottom: 20px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04); 
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        .card h2 { margin-top: 0; font-size: 1.35rem; margin-bottom: 12px; }
-        .card h2 a { color: var(--primary); text-decoration: none; }
-        .card h2 a:hover { text-decoration: underline; }
-        .meta { font-size: 0.85rem; color: #7f8c8d; margin-bottom: 12px; }
-        .tag { 
-            display: inline-block; 
-            background: #eef5fc; 
-            color: var(--primary); 
-            padding: 2px 10px; 
-            border-radius: 15px; 
-            font-size: 0.8rem; 
-            font-weight: 500;
-            margin-right: 6px; 
-        }
-        .summary { color: #555; font-size: 0.98rem; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🩺 {{ .Site.Title }}</h1>
-            <p>{{ .Site.Params.description }}</p>
-        </header>
+{{ define "main" }}
+<div style="margin-bottom: 30px;">
+    <h1 style="font-size: 2rem; color: var(--primary); margin-bottom: 8px;">临床麻醉与围术期医学文摘</h1>
+    <p style="color: #64748b; font-size: 1.05rem;">实时追踪麻醉学高频文献深度解析。</p>
+</div>
 
-        <main>
-            <div class="section-title">最新前沿文摘</div>
-            
-            {{ range .Site.RegularPages.ByPublishDate.Reverse }}
-            <div class="card">
-                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-               <div class="meta">
-                 {{ if .Date.IsZero }}
-                   发布日期：近期更新
-                 {{ else }}
-                   发布日期：{{ .Date.Format "2006-01-02 15:04" }}
-                 {{ end }}
-               </div>
-                <div style="margin-bottom: 12px;">
-                    {{ range .Params.tags }}
-                    <span class="tag"># {{ . }}</span>
-                    {{ end }}
-                </div>
-                <div class="summary">
-                    {{ .Summary | default .Description }}
-                </div>
-            </div>
+<div style="display: flex; flex-direction: column; gap: 20px;">
+    {{ range .Site.RegularPages }}
+    <article style="background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); transition: all 0.2s;">
+        <h2 style="margin-top: 0; margin-bottom: 12px; font-size: 1.4rem;">
+            <a href="{{ .RelPermalink }}" style="color: var(--primary); text-decoration: none;">{{ .Title }}</a>
+        </h2>
+        <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 15px;">
+            {{ if .Date.IsZero }}发布日期：近期更新{{ else }}发布日期：{{ .Date.Format "2006-01-02" }}{{ end }}
+        </div>
+        <div style="margin-bottom: 15px;">
+            {{ range .Params.tags }}
+            <span style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 2px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; margin-right: 6px;"># {{ . }}</span>
             {{ end }}
-        </main>
-    </div>
-</body>
-</html>
+        </div>
+        <p style="color: #475569; margin: 0; font-size: 0.98rem;">{{ .Summary | default .Description }}</p>
+    </article>
+    {{ end }}
+</div>
+{{ end }}
